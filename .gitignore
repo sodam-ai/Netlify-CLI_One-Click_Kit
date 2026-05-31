@@ -12,3 +12,8 @@ $RECYCLE.BIN/
 
 # Netlify local config (generated per-project, not part of this kit)
 .netlify/
+
+# Editor / tool metadata
+.omc/
+.cursor/
+.vscode/
