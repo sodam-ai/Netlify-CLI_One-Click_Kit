@@ -1,0 +1,14 @@
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# System
+*.log
+*.tmp
+*.bak
+*.swp
+
+# Netlify local config (generated per-project, not part of this kit)
+.netlify/
