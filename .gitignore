@@ -17,3 +17,10 @@ $RECYCLE.BIN/
 .omc/
 .cursor/
 .vscode/
+.idea/
+.plugin-config/
+.browser-pilot/
+.todos-report.md/
+.complexity-log.md
+.pair-programming-session.md
+.remember/

@@ -1,200 +1,236 @@
-# Netlify CLI One-Click Kit 🚀
+# Netlify One-Click Kit (Netlify CLI One-Click Kit)
 
-> One-click install, use, and uninstall for Netlify CLI on Windows — no command-line knowledge required
+A **beginner-friendly** kit that lets you **install, use, and remove** the Netlify CLI — the tool that
+**publishes your website to the internet** — with **a few clicks and no commands to memorize**.
+A Korean-first guide panel tells you **"which number to press now."**
 
-**Korean guide:** [README.md](./README.md)
-
----
-
-## What is this?
-
-Netlify is a free service that lets you publish websites to the internet.  
-Netlify CLI is a tool that lets you control that service from your own computer.
-
-This kit gives you **three simple batch scripts** so you can install, use, and uninstall Netlify CLI on Windows with a double-click — no terminal experience needed.
+> Korean is the default. This English version mirrors it. Detailed guide: [GUIDE.en.md](./GUIDE.en.md). Korean docs: [README.md](./README.md), [사용설명서.md](./사용설명서.md).
 
 ---
 
-## File Structure
+## 📑 Table of Contents
+
+1. [What is this? (1-minute overview)](#1-what-is-this-1-minute-overview)
+2. [5 words to know first](#2-5-words-to-know-first)
+3. [Prerequisites & required programs](#3-prerequisites--required-programs)
+4. [Quick start (3 minutes)](#4-quick-start-3-minutes)
+5. [Download & unblock](#5-download--unblock)
+6. [How to install](#6-how-to-install)
+7. [Run / use / how it works](#7-run--use--how-it-works)
+8. [Full workflow](#8-full-workflow)
+9. [How to uninstall](#9-how-to-uninstall)
+10. [Problem & error handling](#10-problem--error-handling)
+11. [File / doc / data locations](#11-file--doc--data-locations)
+12. [Command reference (optional)](#12-command-reference-optional)
+13. [License · Copyright · Commercial use](#13-license--copyright--commercial-use)
+
+---
+
+## 1. What is this? (1-minute overview)
+
+- **Netlify** is a service that puts your website on the internet and gives it a **web address (URL)**.
+- Normally you must type **English commands** in a black console window — a big wall for first-timers.
+- This kit replaces that with a **Korean menu + number selection**. **Nothing to memorize.**
+
+---
+
+## 2. 5 words to know first
+
+| Word | Plain meaning |
+|---|---|
+| **Node.js** | A supporting program like a car **engine**. The Netlify tool needs it to run. Install **once**. |
+| **Black window (console/terminal)** | A window where you give the computer text commands. The kit **opens and closes it for you**. Normal. |
+| **Netlify account** | Your **ID** for Netlify. If you don't have one, **sign up free** (no card). |
+| **Deploy** | **Publishing** your website to the internet. Two kinds: **Preview** (only you) and **Production** (everyone). |
+| **CLI** | "Command-line tool." Since we only press menu items, **no commands to memorize**. |
+
+---
+
+## 3. Prerequisites & required programs
+
+### What you must prepare yourself
+- **Windows 10 or 11** (this kit is Windows-only)
+- **Internet connection** (needed for install, login, deploy)
+- **Node.js v20.12.2 or newer** (LTS) — the kit does **NOT** install Node.js for you. Install it yourself (see section 6).
+- **A Netlify account** (free) — needed at the login step. Sign up at https://app.netlify.com if you don't have one.
+
+### What the kit installs for you
+- **netlify-cli** — the Netlify tool itself. `INSTALL.bat` (menu [1] Install) installs it automatically.
+
+> In short: **You prepare** = Windows + Internet + Node.js + Netlify account. **The kit handles** = installing netlify-cli.
+
+---
+
+## 4. Quick start (3 minutes)
+
+1. **Double-click** `시작하기.bat` (means "Start Here").
+2. Follow the single **`>> What to do now`** line near the bottom of the screen.
+3. **[1] Install** → (when done) **[2] Use → [1] Log in** → **[4] Practice deploy with the sample site**.
+4. When a temporary URL appears, open it. If you see **"Congratulations!"**, it worked.
+
+> **How to choose:** Up/Down arrows + Enter, or number keys. **Just Enter** runs the green **recommended** item. **ESC** = cancel/back.
+> The **"Now selected: …"** line below the menu lets you confirm what you're choosing before pressing.
+
+---
+
+## 5. Download & unblock
+
+Windows sometimes **locks** files downloaded from the internet. Just unblock them.
+
+1. (Easiest) **Before** unzipping, right-click the zip → **Properties → check 'Unblock' at the bottom → OK** → then unzip.
+2. If a blue **"Windows protected your PC"** dialog appears → **More info → Run anyway**.
+
+> Once `시작하기.bat` runs once, the rest of the files are **unblocked automatically.** (Usually you only deal with this once.)
+
+---
+
+## 6. How to install
+
+1. `시작하기.bat` → **[1] Install**.
+2. **No admin prompt appears.** (Netlify installs only into your user folder `%APPDATA%\npm`, so no admin rights are needed.)
+3. A black window runs 6 steps in English. **Do not close it; wait (3–10 min).**
+   Text may appear **frozen for a while — that's normal** (downloading). Closing it breaks the install.
+4. `ALL DONE!  NETLIFY CLI IS INSTALLED.` means success.
+
+**If it says Node.js is missing** → install **LTS (20+)** from https://nodejs.org, then close the window, re-run `시작하기.bat` → [1].
+
+Step-by-step screens and the error table are in [GUIDE.en.md](./GUIDE.en.md).
+
+---
+
+## 7. Run / use / how it works
+
+Double-clicking `시작하기.bat` automatically checks your computer state (Node / CLI / login) and tells you **what to do now** in one line.
+
+**Start menu (Korean labels)**
+
+| No. | Item | What it does |
+|---|---|---|
+| 1 | Install | Install the Netlify tool |
+| 2 | Use | Log in / practice deploy / deploy my site (Korean submenu) |
+| 3 | "Something's wrong?" | **Self-diagnosis** — checks what's wrong and shows fixes in Korean (safe) |
+| 4 | Uninstall | Cleanly remove the Netlify tool (keeps your code) |
+| 5 | Guide | Open the beginner guide |
+| 6 | Netlify dashboard | Open the site-management page in your browser |
+| 0 | Exit | Close the panel |
+
+**[2] Use submenu:** 1 Log in · 2 Check login · 3 List my sites · **4 Practice deploy with sample site (recommended)** · 5 Deploy my folder · 6 Full menu (English, 26 items) · 0 Back.
+
+**How it works (in brief):** the Korean panel (`lib\start.ps1`) calls the English engines (`INSTALL/RUN/UNINSTALL.bat`) for you and re-reads your state every time.
+
+---
+
+## 8. Full workflow
 
 ```
-Netlify-CLI_One-Click_Kit/
-├── INSTALL.bat      ← Install Netlify CLI (run once)
-├── RUN.bat          ← Use Netlify CLI via easy menu (start here daily)
-├── UNINSTALL.bat    ← Remove Netlify CLI when no longer needed
-├── README.md        ← Korean guide
-└── README.en.md     ← English guide (this file)
+Double-click 시작하기.bat
+        │
+        ▼
+ [1] Install  ──(if Node missing, install from nodejs.org, then retry)──┐
+        │                                                               │
+        ▼                                                               │
+ [2] Use → [1] Log in (sign up free first if needed) ◄──────────────────┘
+        │
+        ▼
+ [2] Use → [4] Practice deploy with sample site  (complete one success loop)
+        │
+        ▼
+ Prepare my website → [5] Deploy my folder
+        │
+        ├─ [1] Preview (safe, temporary URL)   ← always first
+        └─ [2] Production (type YES)           ← only when sure
 ```
 
 ---
 
-## System Requirements
+## 9. How to uninstall
 
-| Item | Requirement |
-|------|-------------|
-| OS | Windows 10 or Windows 11 |
-| Node.js | **v20.12.2 or higher** (LTS recommended) |
-| npm | Included with Node.js |
-| Internet | Required for installation; some features need it afterwards |
+1. `시작하기.bat` → **[4] Uninstall**.
+2. Use **[1] Preview** to see what will be removed, then type **`YES` (uppercase)** in **[2]**.
 
-> **Don't have Node.js?**  
-> → Go to [https://nodejs.org](https://nodejs.org) and download the **LTS** version.  
-> → Run the installer and click "Next" through all the default options.
+**What is kept:** your **website code files**, **Node.js**, and the **live sites** already on Netlify's servers. (Only the Netlify tool, login key, and cache are removed.)
 
 ---
 
-## Beginner's Getting Started Guide
+## 10. Problem & error handling
 
-### Step 1: Install
+> **If you don't know what's wrong**, use `시작하기.bat` → **[3] Something's wrong? (Self-diagnosis)**.
+> It checks Node / install / login / internet and gives **fixes in Korean** right away.
 
-1. Double-click **`INSTALL.bat`** in this folder.
-2. When Windows asks "Do you want to allow this app to make changes?" click **Yes**.
-3. A black window opens and installation begins. **Do not close this window.**
-4. When you see `ALL DONE! NETLIFY CLI IS INSTALLED.` — you're done.
-5. Press any key to close the window.
+| Symptom | Fix |
+|---|---|
+| `NETLIFY CLI IS NOT INSTALLED` | Run [1] Install first |
+| Installed but `netlify ... not found` | Close all windows and reopen `시작하기.bat` in a **new** window |
+| `Node.js is NOT on this computer` | Install **LTS** from https://nodejs.org, then [1] again |
+| `The install did not finish` | Check internet/antivirus/corporate network → disable antivirus 10 min and retry (steps in the guide) |
+| File won't open / "protected your PC" warning | See section 5 "Download & unblock" |
 
-> ⏱ Installation takes 3–10 minutes depending on your internet speed.
-
-### Step 2: Use
-
-1. Double-click **`RUN.bat`**.
-2. A numbered menu appears. Type a number and press Enter.
-3. First time? Choose **`4` (Log in to Netlify)** to log in to your account.
-4. Your browser will open — log in with your Netlify account.
-5. Once logged in, you're ready to use all features.
-
-### Step 3: Deploy a Website
-
-1. In the `RUN.bat` menu, choose **`17` (Deploy PREVIEW)** to do a safe test deployment first.
-2. A preview URL will appear — check that everything looks right.
-3. When ready to go live, choose **`18` (Deploy to PRODUCTION)**.
-4. Type `YES` and your website will be published to the internet.
+The most common causes are a **blocked network (corporate/school)** and **antivirus**. Step-by-step recovery is in [GUIDE.en.md](./GUIDE.en.md).
 
 ---
 
-## Full Menu Reference (RUN.bat)
+## 11. File / doc / data locations
 
-### Basic
-| # | Action |
-|---|--------|
-| 1 | Show Netlify CLI version |
-| 2 | Update Netlify CLI to latest version |
-| 3 | Run full diagnostic (find problems) |
+### Files inside the kit folder
 
-### Account
-| # | Action |
-|---|--------|
-| 4 | Log in to Netlify |
-| 5 | Log out from Netlify |
-| 6 | Show login status |
-| 7 | Switch to another account |
+| File/folder | What it does |
+|---|---|
+| `시작하기.bat` | Korean start panel. **Start here.** |
+| `INSTALL.bat` | Install the Netlify CLI (English engine) |
+| `RUN.bat` | 26-item full menu: login, sites, deploy (English engine) |
+| `UNINSTALL.bat` | Clean removal (English engine) |
+| `lib\start.ps1` | The actual content of the Korean panel |
+| `sample-site\index.html` | A one-page **practice** sample site |
+| `README.md` / `README.en.md` | Overview (Korean / English) |
+| `사용설명서.md` / `GUIDE.en.md` | Detailed guide (Korean / English) |
+| `LICENSE` / `NOTICE` | License & notices |
 
-### My Websites
-| # | Action |
-|---|--------|
-| 8 | List all my sites |
-| 9 | Start a new Netlify site in this folder (init) |
-| 10 | Link this folder to an existing site |
-| 11 | Unlink this folder from a site |
-| 12 | Create a brand new empty site |
-
-### Develop
-| # | Action |
-|---|--------|
-| 13 | Start local dev server (preview on your PC) |
-| 14 | Build the project |
-| 15 | List functions |
-| 16 | Run functions locally |
-
-### Deploy
-| # | Action |
-|---|--------|
-| 17 | Deploy PREVIEW (safe draft — nothing changes live) |
-| 18 | Deploy to PRODUCTION (goes live immediately, requires YES) |
-| 19 | Watch recent deploys |
-
-### Environment Variables
-| # | Action |
-|---|--------|
-| 20 | List all env vars |
-| 21 | Set an env var |
-| 22 | Remove an env var |
-
-### Open in Browser
-| # | Action |
-|---|--------|
-| 23 | Open my live website |
-| 24 | Open Netlify admin dashboard |
-
-### Advanced
-| # | Action |
-|---|--------|
-| 25 | Show all netlify commands (help) |
-| 26 | Type a custom netlify command |
-| 0  | Exit |
+### Where your data is stored (Windows)
+- **Login key & settings:** `%APPDATA%\netlify\Config\config.json`
+- **Where the Netlify tool installs:** `%APPDATA%\npm` (user folder — that's why no admin is needed)
 
 ---
 
-## Environment Variables
+## 12. Command reference (optional)
 
-Environment variables let you store API keys and secret settings safely — outside of your code files.
+You don't need commands. For the curious, here is what the English full menu (`RUN.bat`, [2] Use → [6]) actually runs:
 
-- **How to set:** Menu `21` → enter a name → enter a value
-- **Example names:** `API_KEY`, `DATABASE_URL`, `SECRET_TOKEN`
-- **Note:** Make sure no one can see your screen when you type secret values.
+| Full-menu No. | Command | Meaning |
+|---|---|---|
+| 4 / 5 | `netlify login` / `netlify logout` | Log in / out |
+| 6 | `netlify status` | Login / link status |
+| 8 | `netlify sites:list` | List my sites |
+| 9 | `netlify init` | Start this folder as a new site |
+| 10 / 11 | `netlify link` / `netlify unlink` | Link / unlink folder ↔ site |
+| 13 | `netlify dev` | Local preview server |
+| 17 | `netlify deploy` | **Preview** deploy (safe) |
+| 18 | `netlify deploy --prod` | **Production** deploy (needs YES) |
+| 20–22 | `netlify env:list/set/unset` | View/set/remove env vars |
+| 23 / 24 | `netlify open:site` / `open:admin` | Open my site / admin page |
 
-> ⚠️ Never put API keys, passwords, or tokens directly inside `.bat` files or code files.  
-> Always use environment variables (menu 21) to manage secrets safely.
-
----
-
-## How to Uninstall
-
-When you no longer need Netlify CLI:
-
-1. Double-click **`UNINSTALL.bat`**.
-2. Click **Yes** when Windows asks for permission.
-3. Press `1` to preview what will be removed (nothing changes yet).
-4. Press `2`, then type `YES` to confirm removal.
-5. When you see `ALL DONE! NETLIFY CLI WAS REMOVED.` — it's done.
-
-> Your website files, Node.js, and npm are **not** removed. Only Netlify CLI is uninstalled.
+> Item **26** of the full menu lets you type any command after `netlify` (advanced).
 
 ---
 
-## Common Errors & Fixes
+## 13. License · Copyright · Commercial use
 
-### "Node.js is NOT on this computer"
-→ Install Node.js from [https://nodejs.org](https://nodejs.org) (choose LTS version).
+Please follow this **strictly**. The full texts are [`LICENSE`](./LICENSE) and [`NOTICE`](./NOTICE) in this folder.
 
-### "Your Node.js is TOO OLD"
-→ Download the latest LTS from the same site and install it — it will replace the old version.
+### This kit (the files we authored)
+- **License: Apache License 2.0** — © 2026 **SoDam AI Studio**.
+- **Commercial use allowed**: copy, modify, distribute, internal and commercial use are all permitted (under Apache-2.0 terms).
+- Conditions: when redistributing, **include `LICENSE`/`NOTICE`**, state significant changes, keep attribution. **Trademarks are separate** (below).
 
-### "The install did not finish (tried twice)"
-→ Temporarily pause your antivirus and try again.  
-→ Or open Command Prompt as Administrator and run: `npm install -g netlify-cli --force`
+### External programs the kit installs/uses (not ours)
+- **netlify-cli** — **MIT License** © Netlify, Inc. (https://github.com/netlify/cli). Commercial use allowed.
+- **Node.js** — MIT-style license © OpenJS Foundation and contributors. Installed by you from nodejs.org.
 
-### "Netlify CLI is not on this computer" (when opening RUN.bat)
-→ Run `INSTALL.bat` first.
+### Trademark · Service · Non-affiliation (important)
+- **"Netlify"** is a **trademark** of **Netlify, Inc.** This kit is an **independent** tool, **not affiliated with, endorsed, or sponsored by** Netlify.
+- **Code license and use of the Netlify service are separate.** Hosting, deployment, and fees are governed entirely by
+  **Netlify's own Terms of Service and pricing** (https://www.netlify.com). **Exceeding the free tier may incur charges.**
+- A trademark mention does not grant a code license. To use the "Netlify" name/logo in a commercial service, review Netlify's trademark policy separately.
 
-### "netlify command not found" (after installing)
-→ Close this window, open a new one, or restart your PC.
-
-### Installation fails on a company/firewall network
-→ Ask your IT team to allow access to `registry.npmjs.org`.
-
----
-
-## Security Notes
-
-- Never write API keys, passwords, or tokens directly inside `.bat` files.
-- Before running any `.bat` file from an unknown source, open it in Notepad and review the contents.
-- Running `UNINSTALL.bat` will remove your Netlify login token — you will need to log in again if you reinstall.
-- Menu option `18` (Deploy to PRODUCTION) publishes your site immediately. Always review before typing `YES`.
-
----
-
-## License
-
-Apache License 2.0 — Copyright 2026 SoDam AI Studio  
-See the [LICENSE](./LICENSE) file for full details.
+### Disclaimer
+- This kit is provided **"AS IS"** with **no warranty of any kind.**
+- **You are responsible** for the results of use (deploys, charges, data, etc.). **Always review your content before a production deploy.**

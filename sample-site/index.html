@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>내 첫 사이트 - Netlify 배포 체험</title>
+  <style>
+    :root { color-scheme: light dark; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Segoe UI", "Malgun Gothic", system-ui, sans-serif;
+      background: linear-gradient(135deg, #0e7490 0%, #14b8a6 100%);
+      color: #0f172a;
+      padding: 24px;
+    }
+    .card {
+      width: 100%;
+      max-width: 520px;
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 40px 32px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+      text-align: center;
+    }
+    .badge {
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 600;
+      color: #0e7490;
+      background: #ecfeff;
+      border-radius: 999px;
+      padding: 6px 14px;
+      margin-bottom: 20px;
+    }
+    h1 { font-size: 28px; margin: 0 0 12px; line-height: 1.3; }
+    p { font-size: 16px; line-height: 1.7; color: #334155; margin: 0 0 12px; }
+    .check { font-size: 15px; color: #0f766e; font-weight: 600; margin-top: 20px; }
+    .small { font-size: 13px; color: #94a3b8; margin-top: 24px; }
+    @media (max-width: 380px) {
+      .card { padding: 28px 20px; }
+      h1 { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <span class="badge">Netlify 배포 체험 성공</span>
+    <h1>축하합니다! 🎉<br />내 첫 사이트가 인터넷에 올라갔어요</h1>
+    <p>
+      지금 이 화면이 보인다는 것은,
+      <strong>설치 → 로그인 → 배포</strong>까지 모두 성공했다는 뜻입니다.
+    </p>
+    <p>
+      이 페이지는 연습용 예제입니다. 이제 같은 방법으로
+      <strong>내가 만든 진짜 웹사이트</strong>도 올릴 수 있습니다.
+    </p>
+    <p class="check">✓ 이 주소(URL)는 친구에게 보내도 똑같이 보입니다.</p>
+    <p class="small">Netlify 원클릭 키트 · 연습용 샘플 사이트</p>
+  </main>
+</body>
+</html>
