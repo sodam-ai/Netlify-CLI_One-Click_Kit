@@ -1,7 +1,7 @@
 @echo off
-chcp 65001 >nul
+chcp 949 >nul
 setlocal EnableDelayedExpansion
-title Netlify CLI - Easy Menu
+title Netlify CLI - Easy Menu (쉬운 메뉴)
 
 REM ====================================================
 REM   Hi! This menu lets you use Netlify CLI easily.
@@ -31,62 +31,62 @@ for /f "delims=" %%i in ('call netlify --version 2^>nul') do set "NF_VER=%%i"
 cls
 echo.
 echo ==================================================
-echo    NETLIFY CLI - EASY MENU
+echo    NETLIFY CLI - EASY MENU  (쉬운 메뉴)
 echo ==================================================
 echo  Version: !NF_VER!
 echo  Folder:  %SCRIPT_DIR%
 echo ==================================================
 echo.
-echo  Type a number and press Enter.
+echo  Type a number and press Enter.  (번호를 누르고 Enter)
 echo.
-echo  --- BASIC ---
-echo   [1]  Show my Netlify CLI version
-echo   [2]  Update Netlify CLI to newest version
-echo   [3]  Run full diagnostic (find problems)
+echo  --- BASIC (기본) ---
+echo   [1]  Show my Netlify CLI version            (내 버전 보기)
+echo   [2]  Update Netlify CLI to newest version   (최신으로 업데이트)
+echo   [3]  Run full diagnostic (find problems)    (문제 진단)
 echo.
-echo  --- ACCOUNT ---
-echo   [4]  Log in to Netlify
-echo   [5]  Log out from Netlify
-echo   [6]  Show login status
-echo   [7]  Switch to another account
+echo  --- ACCOUNT (계정) ---
+echo   [4]  Log in to Netlify                       (로그인)
+echo   [5]  Log out from Netlify                    (로그아웃)
+echo   [6]  Show login status                       (로그인 상태)
+echo   [7]  Switch to another account              (계정 전환)
 echo.
-echo  --- MY WEBSITES ---
-echo   [8]  Show all my websites
-echo   [9]  Start a new Netlify website here (init)
-echo   [10] Link this folder to a website
-echo   [11] Unlink this folder from a website
-echo   [12] Create a brand new empty website
+echo  --- MY WEBSITES (내 사이트) ---
+echo   [8]  Show all my websites                    (사이트 목록)
+echo   [9]  Start a new Netlify website here (init) (이 폴더로 새 사이트)
+echo   [10] Link this folder to a website          (폴더를 사이트에 연결)
+echo   [11] Unlink this folder from a website      (연결 해제)
+echo   [12] Create a brand new empty website       (빈 사이트 새로 만들기)
 echo.
-echo  --- DEVELOP ---
-echo   [13] Start local dev server (netlify dev)
-echo   [14] Build the project (netlify build)
-echo   [15] Show functions list
-echo   [16] Run functions locally
+echo  --- DEVELOP (개발) ---
+echo   [13] Start local dev server (netlify dev)   (로컬 미리보기 서버)
+echo   [14] Build the project (netlify build)      (빌드)
+echo   [15] Show functions list                    (함수 목록)
+echo   [16] Run functions locally                  (함수 로컬 실행)
 echo.
-echo  --- DEPLOY ---
-echo   [17] Deploy PREVIEW (safe draft)
-echo   [18] Deploy to PRODUCTION (LIVE^!)
-echo   [19] Watch recent deploys
+echo  --- DEPLOY (배포) ---
+echo   [17] Deploy PREVIEW (safe draft)            (미리보기 배포 - 안전)
+echo   [18] Deploy to PRODUCTION (LIVE^!)           (진짜 공개 - 주의)
+echo   [19] Watch recent deploys                   (최근 배포 보기)
 echo.
-echo  --- ENV VARS ---
-echo   [20] List all env vars
-echo   [21] Set an env var
-echo   [22] Remove an env var
+echo  --- ENV VARS (환경변수) ---
+echo   [20] List all env vars                       (환경변수 목록)
+echo   [21] Set an env var                          (환경변수 설정)
+echo   [22] Remove an env var                       (환경변수 삭제)
 echo.
-echo  --- OPEN IN BROWSER ---
-echo   [23] Open my live website
-echo   [24] Open Netlify dashboard (admin)
+echo  --- OPEN IN BROWSER (브라우저로 열기) ---
+echo   [23] Open my live website                    (내 사이트 열기)
+echo   [24] Open Netlify dashboard (admin)         (대시보드 열기)
 echo.
-echo  --- ADVANCED ---
-echo   [25] Show all netlify commands (help)
-echo   [26] Type my own netlify command
+echo  --- ADVANCED (고급) ---
+echo   [25] Show all netlify commands (help)       (전체 명령 도움말)
+echo   [26] Type my own netlify command            (직접 명령 입력)
 echo.
-echo   [0]  Exit
+echo   [0]  Exit                                    (끝내기)
 echo.
 echo ==================================================
 
 set "CHOICE="
-set /p CHOICE="  Type a number and press Enter: "
+set /p CHOICE="  Type a number / 번호 입력: "
 
 if not defined CHOICE goto :MAIN_MENU
 if "!CHOICE!"=="0" goto :END
@@ -118,7 +118,7 @@ if "!CHOICE!"=="25" goto :HELP
 if "!CHOICE!"=="26" goto :CUSTOM
 
 echo.
-echo   That number is not on the menu. Try again.
+echo   That number is not on the menu. Try again.  (메뉴에 없는 번호예요.)
 timeout /t 2 >nul
 goto :MAIN_MENU
 
@@ -369,14 +369,16 @@ goto :MAIN_MENU
 :DEPLOY_PROD
 cls
 echo.
-echo ==== Deploy to PRODUCTION ====
+echo ==== Deploy to PRODUCTION (진짜 공개 배포) ====
 echo.
-echo  *** WARNING ***
+echo  *** WARNING (주의) ***
 echo  This will put your code on the LIVE website.
+echo  (지금 폴더의 내용을 인터넷에 진짜로 공개합니다.)
 echo  Real visitors will see it right away.
+echo  (방문자가 곧바로 보게 됩니다.)
 echo.
 set "CONFIRM_PROD="
-set /p CONFIRM_PROD="  Type YES to deploy to production: "
+set /p CONFIRM_PROD="  Type YES to deploy / 공개하려면 YES 입력: "
 if /i not "!CONFIRM_PROD!"=="YES" goto :CANCEL_PROD
 echo.
 call netlify deploy --prod
@@ -527,15 +529,17 @@ cls
 echo.
 echo ==================================================
 echo    OH NO - NETLIFY CLI IS NOT INSTALLED
+echo    (앗 - Netlify CLI가 아직 설치 안 됨)
 echo ==================================================
 echo.
 echo  Netlify CLI is not on this computer yet.
+echo  (이 컴퓨터에 아직 설치되지 않았어요.)
 echo.
-echo  How to fix:
-echo    1. Close this window.
-echo    2. Double-click INSTALL.bat
-echo    3. Wait until you see "ALL DONE".
-echo    4. Then run RUN.bat again.
+echo  How to fix (해결 방법):
+echo    1. Close this window.             (이 창을 닫기)
+echo    2. Double-click INSTALL.bat       (INSTALL.bat 더블클릭)
+echo    3. Wait until you see "ALL DONE". (ALL DONE 나올 때까지 대기)
+echo    4. Then run RUN.bat again.        (다시 RUN.bat 실행)
 echo.
 pause
 exit /b 2

@@ -1,27 +1,18 @@
 @echo off
-chcp 65001 >nul
+chcp 949 >nul
 setlocal EnableDelayedExpansion
-title Netlify CLI - One-Click Installer
+title Netlify CLI - One-Click Installer (원클릭 설치)
 
 REM ====================================================
 REM   Hi! This file will install Netlify CLI for you.
 REM   Just wait a few minutes. Don't close this window.
 REM ====================================================
 
-REM --- Step 0: Get admin power (Windows will ask, click YES) ---
-net session >nul 2>&1
-if %errorlevel% neq 0 goto :NEED_ADMIN
-goto :HAVE_ADMIN
+REM --- No admin needed ---
+REM   netlify-cli installs into the user's own npm folder
+REM   (%APPDATA%\npm), so this script does NOT ask for admin.
+REM   No Yes/No (UAC) permission popup will appear.
 
-:NEED_ADMIN
-echo.
-echo Windows will now ask for permission.
-echo Please click YES so the installer can work.
-echo.
-powershell -Command "Start-Process -FilePath '%~f0' -Verb RunAs"
-exit /b 0
-
-:HAVE_ADMIN
 REM --- Set up paths (works on any computer, any folder) ---
 set "SCRIPT_DIR=%~dp0"
 set "SCRIPT_DIR=%SCRIPT_DIR:~0,-1%"
@@ -43,7 +34,7 @@ echo --------------------------------------------------
 echo.
 
 REM --- Step 1: Check Windows version (info only) ---
-echo [Step 1 of 6] Checking Windows version...
+echo [Step 1 of 6] Checking Windows version...  (1/6 윈도우 확인)
 ver | findstr /i "10\." >nul && set "WIN_OK=1"
 ver | findstr /i "11\." >nul && set "WIN_OK=1"
 if defined WIN_OK goto :WIN_OK_OUT
@@ -58,7 +49,7 @@ echo               Windows looks OK [OK]
 echo.
 
 REM --- Step 2: Check Node.js (major AND minor AND patch) ---
-echo [Step 2 of 6] Looking for Node.js...
+echo [Step 2 of 6] Looking for Node.js...  (2/6 Node.js 찾는 중)
 where node >nul 2>&1
 if %errorlevel% neq 0 goto :NO_NODE
 
@@ -93,7 +84,7 @@ echo               Node.js version is OK [OK]
 echo.
 
 REM --- Step 3: Check npm ---
-echo [Step 3 of 6] Looking for npm...
+echo [Step 3 of 6] Looking for npm...  (3/6 npm 찾는 중)
 where npm >nul 2>&1
 if %errorlevel% neq 0 goto :NO_NPM
 
@@ -108,7 +99,7 @@ echo               Location: !NPM_PATH! [OK]
 echo.
 
 REM --- Step 4: Find the npm global folder and add it to PATH ---
-echo [Step 4 of 6] Setting up PATH...
+echo [Step 4 of 6] Setting up PATH...  (4/6 경로 설정)
 set "NPM_PREFIX="
 for /f "delims=" %%i in ('call npm config get prefix 2^>nul') do set "NPM_PREFIX=%%i"
 if not defined NPM_PREFIX goto :NO_PREFIX
@@ -121,7 +112,7 @@ REM --- Step 5: Quick internet test using Windows ping (3s timeout) ---
 REM    NOTE: We do NOT use `npm ping` here because it can hang
 REM    for many seconds behind firewalls or proxies, with no
 REM    client-side timeout. Windows `ping` is fast and safe.
-echo [Step 5 of 6] Testing internet connection (3 seconds)...
+echo [Step 5 of 6] Testing internet connection (3 seconds)...  (5/6 인터넷 확인)
 ping -n 1 -w 3000 registry.npmjs.org >nul 2>&1
 if %errorlevel% equ 0 goto :NET_OK
 echo               (Internet check could not confirm - that is OK)
@@ -136,9 +127,11 @@ echo               Internet looks good [OK]
 echo.
 
 REM --- Step 6: Install Netlify CLI (with auto-retry on failure) ---
-echo [Step 6 of 6] Installing Netlify CLI...
+echo [Step 6 of 6] Installing Netlify CLI...  (6/6 Netlify CLI 설치 중)
 echo               This part can take 3 to 10 minutes.
+echo               (3~10분 걸릴 수 있어요.)
 echo               Please be patient. Do not close this window.
+echo               (기다려 주세요. 이 창을 닫지 마세요.)
 echo.
 call npm install -g netlify-cli
 if %errorlevel% equ 0 goto :INSTALL_OK
@@ -179,7 +172,7 @@ echo          Location: !NF_PATH!
 echo.
 
 echo ==================================================
-echo    ALL DONE^!  NETLIFY CLI IS INSTALLED.
+echo    ALL DONE^!  NETLIFY CLI IS INSTALLED.  (설치 완료^!)
 echo ==================================================
 echo.
 echo  Next steps:
@@ -200,15 +193,16 @@ REM ============= ERROR HANDLERS =============
 :NO_NODE
 echo.
 echo [PROBLEM] Node.js is NOT on this computer.
+echo           (문제: 이 컴퓨터에 Node.js 가 없습니다)
 echo.
-echo  How to fix:
-echo    1. Open your web browser.
-echo    2. Go to: https://nodejs.org
-echo    3. Click the big green button to download.
-echo    4. Pick the "LTS" version (number 20 or higher).
-echo    5. Open the file you downloaded and install it.
-echo    6. Close this window.
-echo    7. Run INSTALL.bat again.
+echo  How to fix (해결 방법):
+echo    1. Open your web browser.                        (브라우저 열기)
+echo    2. Go to: https://nodejs.org                     (이 주소로 가기)
+echo    3. Click the big green button to download.       (초록 버튼으로 다운로드)
+echo    4. Pick the "LTS" version (number 20 or higher). (LTS 20 이상 고르기)
+echo    5. Open the file you downloaded and install it.  (받은 파일 실행해 설치)
+echo    6. Close this window.                            (이 창 닫기)
+echo    7. Run INSTALL.bat again.                        (INSTALL.bat 다시 실행)
 echo.
 pause
 exit /b 2
@@ -266,10 +260,11 @@ echo    4. Not enough disk space.
 echo    5. Your antivirus quarantined files.
 echo.
 echo  Try this:
-echo    1. Pause your antivirus for 10 minutes.
-echo    2. Open Command Prompt as Administrator.
-echo    3. Type:  npm install -g netlify-cli --force
-echo    4. If that works, you are done.
+echo    1. Pause your antivirus for 10 minutes, then run INSTALL.bat again.
+echo    2. If you see a PERMISSION or EACCES error (rare), right-click
+echo       INSTALL.bat and pick "Run as administrator" - only then.
+echo    3. Or open Command Prompt and type:
+echo         npm install -g netlify-cli --force
 echo.
 pause
 exit /b 3

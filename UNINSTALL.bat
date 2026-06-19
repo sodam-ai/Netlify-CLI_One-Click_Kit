@@ -1,27 +1,17 @@
 @echo off
-chcp 65001 >nul
+chcp 949 >nul
 setlocal EnableDelayedExpansion
-title Netlify CLI - Safe Uninstaller
+title Netlify CLI - Safe Uninstaller (안전 제거)
 
 REM ====================================================
 REM   This file will REMOVE Netlify CLI from your PC.
 REM   It is safe. Your projects will NOT be deleted.
 REM ====================================================
 
-REM --- Step 0: Get admin power ---
-net session >nul 2>&1
-if %errorlevel% neq 0 goto :NEED_ADMIN
-goto :HAVE_ADMIN
+REM --- No admin needed ---
+REM   Removing netlify-cli only touches your user npm folder
+REM   (%APPDATA%\npm) and your AppData, so NO admin popup appears.
 
-:NEED_ADMIN
-echo.
-echo Windows will ask for permission.
-echo Please click YES.
-echo.
-powershell -Command "Start-Process -FilePath '%~f0' -Verb RunAs"
-exit /b 0
-
-:HAVE_ADMIN
 set "SCRIPT_DIR=%~dp0"
 set "SCRIPT_DIR=%SCRIPT_DIR:~0,-1%"
 cd /d "%SCRIPT_DIR%"
@@ -36,18 +26,18 @@ if defined NPM_PREFIX set "PATH=!NPM_PREFIX!;!PATH!"
 cls
 echo.
 echo ==================================================
-echo    NETLIFY CLI - SAFE UNINSTALLER
+echo    NETLIFY CLI - SAFE UNINSTALLER  (안전 제거)
 echo ==================================================
 echo.
-echo  Pick what you want to do:
+echo  Pick what you want to do:  (무엇을 할까요?)
 echo.
-echo   [1]  Show what would be removed (safe preview)
-echo   [2]  Really remove Netlify CLI (needs YES)
-echo   [0]  Exit (change nothing)
+echo   [1]  Show what would be removed (safe preview)  (무엇이 지워질지 미리보기 - 안전)
+echo   [2]  Really remove Netlify CLI (needs YES)      (정말 제거하기 - YES 필요)
+echo   [0]  Exit (change nothing)                      (그냥 나가기 - 변경 없음)
 echo.
 
 set "PICK="
-set /p PICK="  Type a number and press Enter: "
+set /p PICK="  Type a number / 번호 입력: "
 
 if "!PICK!"=="0" goto :CANCELLED
 if "!PICK!"=="1" goto :PREVIEW
@@ -109,22 +99,23 @@ echo ==================================================
 echo.
 echo  This will remove Netlify CLI from your computer.
 echo.
-echo  What will be REMOVED:
-echo    - The netlify command
-echo    - Your saved login key for Netlify
-echo    - Netlify cache and settings
+echo  What will be REMOVED (지워지는 것):
+echo    - The netlify command              (netlify 명령)
+echo    - Your saved login key for Netlify (저장된 로그인 키)
+echo    - Netlify cache and settings       (캐시와 설정)
 echo.
-echo  What will NOT be touched:
-echo    - Your website files
-echo    - Your Node.js and npm
-echo    - Any other programs
+echo  What will NOT be touched (안 건드리는 것):
+echo    - Your website files               (내 웹사이트 파일)
+echo    - Your Node.js and npm             (Node.js 와 npm)
+echo    - Any other programs               (다른 프로그램)
 echo.
 echo  To go ahead, type   YES   (in capital letters).
-echo  To stop, just close this window.
+echo  (계속하려면 대문자 YES 를 입력하세요.)
+echo  To stop, just close this window.   (그만하려면 창을 닫으세요.)
 echo.
 
 set "CONFIRM="
-set /p CONFIRM="  Type YES to remove Netlify CLI: "
+set /p CONFIRM="  Type YES to remove / 제거하려면 YES 입력: "
 
 if not defined CONFIRM goto :CANCELLED
 if not "!CONFIRM!"=="YES" goto :CANCELLED
