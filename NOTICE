@@ -1,0 +1,30 @@
+Netlify CLI One-Click Kit
+Copyright 2026 SoDam AI Studio
+
+This product is licensed under the Apache License, Version 2.0.
+See the LICENSE file for the full license text.
+
+------------------------------------------------------------------------
+Third-party tools this kit helps you install / use
+------------------------------------------------------------------------
+
+Netlify CLI (netlify-cli)
+  Copyright Netlify, Inc.
+  Licensed under the MIT License
+  https://github.com/netlify/cli
+
+Node.js
+  A trademark of the OpenJS Foundation
+  https://nodejs.org/
+
+------------------------------------------------------------------------
+Notes
+------------------------------------------------------------------------
+
+This kit is an independent helper. It is NOT affiliated with, endorsed by,
+or sponsored by Netlify, Inc. or the OpenJS Foundation.
+
+"Netlify" is a trademark of Netlify, Inc.
+
+This kit installs Netlify's netlify-cli from the public npm registry.
+Your use of Netlify is subject to Netlify's terms and pricing.
