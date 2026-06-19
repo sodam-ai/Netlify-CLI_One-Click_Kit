@@ -1,0 +1,5 @@
+# Preserve exact bytes for Windows scripts so cmd.exe / PowerShell run correctly.
+# (.bat are CP949+CRLF; start.ps1 is UTF-8 BOM+CRLF — never EOL-convert them.)
+*.bat -text
+*.ps1 -text
+*.pdf binary
